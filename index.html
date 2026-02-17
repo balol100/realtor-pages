@@ -432,7 +432,7 @@
                 <a href="#case-study">מקרה בוחן</a>
                 <a href="#pricing">מחיר</a>
                 <a href="https://lior-ai.netlify.app/" target="_blank">Agent Portal</a>
-                <a href="#cta">צור קשר</a>
+                <a href="#order">צור קשר</a>
             </nav>
         </div>
     </header>
@@ -600,15 +600,54 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section" id="cta">
-        <div class="container">
-            <h2>מוכן לדף הבא שלך?</h2>
-            <p>קבל דמו חינם תוך 24 שעות<br>שלח הודעה ל-WhatsApp וקדימה</p>
-            <a href="https://wa.me/972508668022?text=שלום%20לאור!%20אני%20סוכן%20נדל%22ן%20וחוקר%20דפי%20נחיתה%20בלעדיים.%20אפשר%20דמו%3F" class="whatsapp-button" target="_blank">
-                📱 שלח הודעה ב-WhatsApp
-            </a>
-        </div>
-    </section>
+<section class="cta-section" id="order">
+    <div class="container">
+        <h2>התחל עכשיו</h2>
+        <p style="margin-bottom: 40px;">מלא טופס קטן והאנחנו נחזור אלייך תוך 24 שעות</p>
+
+        <form id="orderForm" style="max-width: 600px; margin: 0 auto; background: rgba(255,255,255,0.1); padding: 40px; border-radius: 12px;">
+
+            <div style="margin-bottom: 20px; text-align: right;">
+                <label style="display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600;">שם מלא</label>
+                <input type="text" name="name" required style="width: 100%; padding: 12px; border: none; border-radius: 6px; font-size: 16px; direction: rtl;">
+            </div>
+
+            <div style="margin-bottom: 20px; text-align: right;">
+                <label style="display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600;">מספר טלפון</label>
+                <input type="tel" name="phone" required style="width: 100%; padding: 12px; border: none; border-radius: 6px; font-size: 16px; direction: rtl;">
+            </div>
+
+            <div style="margin-bottom: 20px; text-align: right;">
+                <label style="display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600;">אזור עיקרי (גבעתיים, רמת גן, וכו')</label>
+                <input type="text" name="area" required style="width: 100%; padding: 12px; border: none; border-radius: 6px; font-size: 16px; direction: rtl;">
+            </div>
+
+            <div style="margin-bottom: 20px; text-align: right;">
+                <label style="display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600;">כמה נכסים אתה רוצה להתחיל עם?</label>
+                <select name="properties" required style="width: 100%; padding: 12px; border: none; border-radius: 6px; font-size: 16px; direction: rtl;">
+                    <option value="">בחר...</option>
+                    <option value="1-3">1-3 נכסים</option>
+                    <option value="4-6">4-6 נכסים</option>
+                    <option value="7-10">7-10 נכסים</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom: 30px; text-align: right;">
+                <label style="display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600;">הערות נוספות</label>
+                <textarea name="notes" style="width: 100%; padding: 12px; border: none; border-radius: 6px; font-size: 16px; direction: rtl; height: 100px;"></textarea>
+            </div>
+
+            <button type="submit" style="width: 100%; background: #ff6b35; color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+                שלח בקשה
+            </button>
+        </form>
+
+        <p style="margin-top: 30px; font-size: 14px; opacity: 0.8;">או שלח הודעה ישירות:</p>
+        <a href="https://wa.me/972508668022?text=שלום!%20אני%20סוכן%20נדל%22ן%20וחוקר%20את%20Agent%20Portal.%20אפשר%20דמו%3F" style="display: inline-block; background: #25d366; color: white; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: 600; margin-top: 15px;">
+            📱 WhatsApp
+        </a>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer>
@@ -622,6 +661,21 @@
     </footer>
 
     <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.querySelector('input[name="name"]').value;
+            const phone = document.querySelector('input[name="phone"]').value;
+            const area = document.querySelector('input[name="area"]').value;
+            const properties = document.querySelector('select[name="properties"]').value;
+            const notes = document.querySelector('textarea[name="notes"]').value;
+
+            const message = `בקשה חדשה לAgent Portal:\n\nשם: ${name}\nטלפון: ${phone}\nאזור: ${area}\nמספר נכסים: ${properties}\nהערות: ${notes || 'אין'}`;
+
+            const whatsappLink = `https://wa.me/972508668022?text=${encodeURIComponent(message)}`;
+            window.open(whatsappLink, '_blank');
+        });
+
         function redirectWhatsApp() {
             const message = "שלום לאור! אני סוכן נדל\"ן וחוקר דפי נחיתה בלעדיים. אפשר דמו?";
             const encodedMessage = encodeURIComponent(message);
