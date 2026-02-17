@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Portal | דף בלעדי לסוכני נדל"ן | lior_Ai</title>
+    <meta name="description" content="דף בלעדי + קידום מלא לסוכני נדל"ן. 10-50 לידים בחודש. משלם רק על תוצאות.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 15px;
+            opacity: 0.95;
+            line-height: 1.4;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            color: #ff6b35;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 16px 50px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background: #ff5520;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #1e3c72;
+            font-weight: 700;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .step-card {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            border-right: 4px solid #ff6b35;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            background: #ff6b35;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .step-card p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Pricing */
+        .pricing {
+            background: #f8f9fa;
+            padding: 80px 20px;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            transform: scale(1.05);
+            border: 2px solid #ff6b35;
+        }
+
+        .pricing-card:not(.featured):hover {
+            border-color: #ff6b35;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .pricing-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .price-main {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ff6b35;
+        }
+
+        .pricing-card.featured .price-main {
+            color: white;
+        }
+
+        .price-subtitle {
+            font-size: 14px;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .pricing-features {
+            text-align: right;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features li {
+            list-style: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            font-size: 15px;
+            color: #666;
+        }
+
+        .pricing-card.featured .pricing-features li {
+            border-bottom-color: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .pricing-features li:before {
+            content: "✓ ";
+            color: #ff6b35;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        /* Benefits */
+        .benefits {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .benefit-item {
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-right: 4px solid #ff6b35;
+        }
+
+        .benefit-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .benefit-item h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .benefit-item p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Case Study */
+        .case-study {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 20px;
+        }
+
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .case-study-text h2 {
+            color: #1e3c72;
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .case-study-text p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .results {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border-right: 4px solid #ff6b35;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .result-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .result-label {
+            color: #666;
+            font-weight: 500;
+        
+
+        .result-value {
+            color: #ff6b35;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .case-study-image {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .case-study-image h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        /* FAQ */
+        .faq {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .faq-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            border-right: 4px solid #ff6b35;
+        }
+
+        .faq-item h4 {
+            color: #1e3c72;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        .faq-answer {
+            color: #666;
+            margin-top: 15px;
+            font-size: 14px;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a2d4a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .case-study-content {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">🏘️ lior_Ai</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Agent Portal</h1>
+            <p>דף בלעדי לנכסיך + קידום מלא</p>
+            <div class="hero-subtitle">משלם רק על לידים בפועל</div>
+            <a href="#order" class="cta-button">התחל עכשיו</a>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">איך זה עובד?</h2>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>אתה שולח נכסים</h3>
+                    <p>כתובת, תמונות, מחיר של הדירות שלך</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>אנחנו בונים דף</h3>
+                    <p>דף בלעדי בשמך עם כל הנכסים שלך</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>אנחנו משקיעים בקידום</h3>
+                    <p>Google Ads + Facebook Ads לדף שלך</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>לידים מגיעים</h3>
+                    <p>Inquiry ישירות לWhatsApp שלך</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3>אתה משלם על תוצאות</h3>
+                    <p>רק כשמישהו בא בפועל</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">6</div>
+                    <h3>Analytics בזמן אמת</h3>
+                    <p>ראה בדיוק כמה לידים קיבלת</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">למה Agent Portal?</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <h4>מטוקד על תוצאות</h4>
+                    <p>אתה משלם רק על הודעות בפועל - לא על "צפייות"</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">📊</div>
+                    <h4>Analytics מלא</h4>
+                    <p>ראה בדיוק כמה בקרו, מי שלח, מאיפה הם הגיעו</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🚀</div>
+                    <h4>קידום כבר כלול</h4>
+                    <p>אנחנו משקיעים בGoogle + Facebook - אתה לא צריך</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <h4>48 שעות לשיקום</h4>
+                    <p>מהרגע שאתה שולח נכסים - הדף בחי בשבוע</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌐</div>
+                    <h4>דף בלעדי</h4>
+                    <p>לא Madlan, לא יד2 - דף שלך בלבד</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">💬</div>
+                    <h4>WhatsApp ישיר</h4>
+                    <p>כל מעוניין שולח הודעה ישירות לWhatsApp שלך</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">מחיר פשוט</h2>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>PAY-PER-LEAD</h3>
+                    <div class="price-main">₪300</div>
+                    <p class="price-subtitle">בידק אחד + הודעות</p>
+                    <ul class="pricing-features">
+                        <li>דף בלעדי בשמך</li>
+                        <li>עד 10 נכסים</li>
+                        <li>Google + Facebook Ads</li>
+                        <li>Analytics מלא</li>
+                        <li>₪30 per inquiry (1-50)</li>
+                        <li>₪20 per inquiry (51-100)</li>
+                        <li>₪10 per inquiry (100+)</li>
+                    </ul>
+                    <p style="font-size: 12px; color: #666; margin-top: 20px;">
+                        דוגמה: 40 inquiries בחודש = ₪1,500
+                    </p>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>UNLIMITED ⭐</h3>
+                    <div class="price-main">₪500</div>
+                    <p class="price-subtitle">בחודש</p>
+                    <ul class="pricing-features">
+                        <li>דף בלעדי בשמך</li>
+                        <li>עד 10 נכסים</li>
+                        <li>Google + Facebook Ads מלא</li>
+                        <li>Analytics בזמן אמת</li>
+                        <li>Unlimited inquiries</li>
+                        <li>Support 24/7</li>
+                        <li>עדכונים חודשיים</li>
+                    </ul>
+                    <p style="font-size: 12px; margin-top: 20px;">
+                        מומלץ: חסוך עד ₪700/חודש!
+                    </p>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 60px; color: #666; font-size: 16px;">
+                ❓ לא בטוח איזה דבר צריך? <a href="#contact" style="color: #ff6b35; font-weight: 600; text-decoration: none;">דברו איתנו</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Case Study -->
+    <section class="case-study">
+        <div class="case-study-content">
+            <div class="case-study-text">
+                <h2>מקרה בוחן: נועם דרסה</h2>
+                <p><strong>סוכן נדל"ן בגבעתיים</strong> עם ניסיון עשיר בתחום.</p>
+                
+                <p>בתחילה, נועם היה משתמש בMadlan + Facebook ads כמו כל סוכן אחר. הלידים היו בודדים.</p>
+
+                <p>כשבנינו עבורו Agent Portal עם דף בלעדי + קידום מלא:</p>
+p>
+
+                <div class="results">
+                    <div class="result-item">
+                        <span class="result-label">עלייה בלידים</span>
+                        <span class="result-value">+250%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">הודעות בחודש</span>
+                        <span class="result-value">35-40</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">עלות לליד</span>
+                        <span class="result-value">₪15</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">חודש ראשון</span>
+                        <span class="result-value">₪1,100</span>
+                    </div>
+                </div>
+
+                <p style="margin-top: 30px; color: #666;">
+                    "הדף שלנו עשה את ההבדל. לא אנחנו שונינו, השיווק שנוי."
+                    <br><strong>- נועם דרסה, סוכן נדל"ן</strong>
+                </p>
+            </div>
+
+            <div class="case-study-image">
+                <h3>סוכן בגבעתיים</h3>
+                <p style="color: #666; margin-bottom: 20px;">דוגמה של דף בלעדי</p>
+                <div style="background: #f0f0f0; padding: 60px 30px; border-radius: 8px; text-align: center; color: #999;">
+                    <p style="font-size: 14px;">
+                        🏠<br><br>
+                        דף בלעדי לנכסים<br>
+                        + קידום מלא<br>
+                        = 35-40 לידים בחודש
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="order">
+        <div class="container">
+            <h2>מוכן להתחיל?</h2>
+            <p>תן לנו 48 שעות<br>אנחנו בונים דף בלעדי לנכסים שלך</p>
+            <a href="https://wa.me/972523739300?text=שלום!%20אני%20סוכן%20נדל%22ן%20וחוקר%20את%20Agent%20Portal.%20אפשר%20דמו%3F" class="cta-button" target="_blank">
+                📱 שלח הודעה ב-WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">שאלות נפוצות</h2>
+            
+            <div class="faq-item">
+                <h4>❓ כמה זמן בניית הדף?</h4>
+                <div class="faq-answer">תוך 48 שעות מהרגע שאתה שולח נכסים, הדף בחי ומוקדם בGoogle + Facebook.</div>
+            </div>
+
+            <div class="faq-item">
+                <h4>❓ אני יכול לשנות נכסים?</h4>
+                <div class="faq-answer">כן, בכל עת. שלח לנו את המידע החדש והאנחנו מעדכנים בתוך 24 שעות.</div>
+            </div>
+
+            <div class="faq-item">
+                <h4>❓ מה עם Google Ads budget?</h4>
+                <div class="faq-answer">אנחנו משקיעים ₪100-200/חודש בקידום הדף שלך. זה כלול בחבילה.</div>
+            </div>
+
+            <div class="faq-item">
+                <h4>❓ איך אני מקבל את הלידים?</h4>
+                <div class="faq-answer">כל מעוניין לוחץ "שלח הודעה" בדף → הודעה מגיעה ישירות לWhatsApp שלך.</div>
+            </div>
+
+            <div class="faq-item">
+                <h4>❓ האם יש guarantee?</h4>
+                <div class="faq-answer">בחודש הראשון: אם תקבל פחות מ-10 inquiries, אנחנו מחזירים ₪300. זה עבורך בטוח.</div>
+            </div>
+
+            <div class="faq-item">
+                <h4>❓ מה אם אני לא מרוצה?</h4>
+                <div class="faq-answer">אתה יכול להפסיק בכל עת. אין חוזה ארוך, אין עונשים. יום אחד בחודש בו תרצה.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Agent Portal by lior_Ai | דפים בלעדיים לסוכני נדל"ן</p>
+            <p style="margin-top: 20px; opacity: 0.8;">
+                <a href="https://x.com/LiorBalol" style="color: #ff6b35; text-decoration: none;">@LiorBalol</a> | 
+                <a href="https://lior-ai.com" style="color: #ff6b35; text-decoration: none;">lior-ai.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
